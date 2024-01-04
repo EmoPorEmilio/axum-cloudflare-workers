@@ -1,3 +1,17 @@
-- name: Deploy to Cloudflare Workers with Wrangler
+name: Deploy
 
-  uses: cloudflare/wrangler-action@v3.4.0
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
