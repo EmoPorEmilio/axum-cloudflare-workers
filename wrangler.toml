@@ -1,6 +1,11 @@
-name = "axum-cloudflare-test"
+workers_dev = true
+compatibility_date = "2023-11-29"
+
 main = "build/worker/shim.mjs"
-compatibility_date = "2023-06-28"
+name = "axum-cloudflare-adapter"
+
+[vars]
+WORKERS_RS_VERSION = "0.0.18"
 
 [build]
 command = "cargo install -q worker-build && worker-build --release"
